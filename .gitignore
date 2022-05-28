@@ -1,0 +1,17 @@
+# Ignore binaries
+
+**/bin/
+**/bin-int/
+!Premake/bin/
+!Application/Vendor/assimp/zlib/bin
+
+# Ignore log files
+
+**.log
+
+# Ignore Visual Studio files
+.vs/
+**.sln
+**.vcxproj
+**.vcxproj.filters
+**.vcxproj.user
