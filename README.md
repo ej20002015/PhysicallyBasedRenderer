@@ -4,6 +4,8 @@ An application for rendering scenes using either Blinn-Phong shading, or physica
 
 Note that currently **only windows is supported**.
 
+**Access the report that goes alongside this code [here](https://github.com/ej20002015/Final-Report-Write-Up/blob/master/finalReport.pdf)**
+
 ## **Originally Hosted On Azure Devops**
 
 This repo was originally hosted on Azure Devops and later migrated to Github, hence the lack of commit history.
