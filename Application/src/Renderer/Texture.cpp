@@ -130,7 +130,7 @@ void Texture::setUpTextureProperties()
 	glTextureParameteri(m_rendererID, GL_TEXTURE_WRAP_T, wrappingMode);
 	glTextureParameteri(m_rendererID, GL_TEXTURE_MIN_FILTER, minFilter);
 	glTextureParameteri(m_rendererID, GL_TEXTURE_MAG_FILTER, magFilter);
-	//glTextureParameterf(m_rendererID, GL_TEXTURE_MAX_ANISOTROPY, 16.0f);
+	glTextureParameterf(m_rendererID, GL_TEXTURE_MAX_ANISOTROPY, 16.0f);
 }
 
 GLenum Texture::getOpenGLWrappingMode() const
