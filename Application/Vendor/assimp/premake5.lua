@@ -41,10 +41,6 @@ project "assimp"
         ".",
     }
 
-    defines
-    {
-    }
-
     filter "configurations:Debug"
         runtime "Debug"
         symbols "on"

@@ -32,7 +32,7 @@ Workspace::Workspace()
 
 		try
 		{
-			auto lightFixtureModel = Model::create("Assets/Models/Backpack/Backpack.obj", Model::MaterialModel::BLINN_PHONG);
+			auto lightFixtureModel = Model::create("Assets/Models/Backpack/backpack.obj", Model::MaterialModel::BLINN_PHONG);
 			m_blinnPhongScene->addModel(lightFixtureModel, glm::mat4(1.0f));
 		}
 		catch (Model::ModelCreationException& e)
@@ -56,7 +56,7 @@ Workspace::Workspace()
 
 		try
 		{
-			auto lightFixtureModel = Model::create("Assets/Models/Pistol/Pistol.fbx", Model::MaterialModel::PBR);
+			auto lightFixtureModel = Model::create("Assets/Models/Pistol/pistol.fbx", Model::MaterialModel::PBR);
 			m_PBRScene->addModel(lightFixtureModel, glm::mat4(1.0f));
 		}
 		catch (Model::ModelCreationException& e)

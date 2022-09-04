@@ -2,6 +2,10 @@
 #include "Texture.h"
 
 #define STB_IMAGE_IMPLEMENTATION
+#if defined(__GNUC__)
+	// GNU has SIMD issues with STBI so it needs to be disabled
+	#define STBI_NO_SIMD
+#endif
 #include "stb_image.h"
 #include "glm/glm.hpp"
 
@@ -57,7 +61,7 @@ void* Texture::loadImageData()
 	void* imageData = reinterpret_cast<void*>(stbi_load(m_specification.filePath.c_str(), &width, &height, &channels, 0));
 
 	if (!imageData)
-		throw TextureCreationException("Could not load image" + m_specification.filePath + ": " + stbi_failure_reason());
+		throw TextureCreationException("Could not load image " + m_specification.filePath + ": " + stbi_failure_reason());
 
 	m_width = static_cast<uint32_t>(width);
 	m_height = static_cast<uint32_t>(height);
@@ -126,7 +130,7 @@ void Texture::setUpTextureProperties()
 	glTextureParameteri(m_rendererID, GL_TEXTURE_WRAP_T, wrappingMode);
 	glTextureParameteri(m_rendererID, GL_TEXTURE_MIN_FILTER, minFilter);
 	glTextureParameteri(m_rendererID, GL_TEXTURE_MAG_FILTER, magFilter);
-	glTextureParameterf(m_rendererID, GL_TEXTURE_MAX_ANISOTROPY, 16.0f);
+	//glTextureParameterf(m_rendererID, GL_TEXTURE_MAX_ANISOTROPY, 16.0f);
 }
 
 GLenum Texture::getOpenGLWrappingMode() const

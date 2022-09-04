@@ -22,7 +22,7 @@ public:
 		ModelCreationException(const std::string errorMessage)
 			: errorMessage("ModelCreationException Occured: " + errorMessage) {}
 
-		const char* what() const override
+		const char* what() const noexcept override
 		{
 			return errorMessage.c_str();
 		}

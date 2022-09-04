@@ -15,3 +15,7 @@
 **.vcxproj
 **.vcxproj.filters
 **.vcxproj.user
+
+# Ignore make files
+
+**/Makefile

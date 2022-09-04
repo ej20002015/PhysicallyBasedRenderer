@@ -69,6 +69,8 @@ void Renderer::init()
 void Renderer::shutdown()
 {
 	glDeleteVertexArrays(1, &s_vertexArrayRendererID);
+	s_blinnPhongRendererImplementation.reset();
+	s_PBRRendererImplementation.reset();
 }
 
 void Renderer::onWindowResizeEvent(uint32_t width, uint32_t height)

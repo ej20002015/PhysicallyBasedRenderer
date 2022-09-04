@@ -380,6 +380,7 @@ Reference<Texture> Model::loadMaterialTexture(const char* textureFilePathRelativ
 	std::stringstream ss;
 	ss << m_modelDirectoryPath << '/' << textureFilePathRelativeToModel;
 	std::string textureFilePath = ss.str();
+	std::replace(textureFilePath.begin(), textureFilePath.end(), '\\', '/');
 
 	Reference<Texture> texture;
 

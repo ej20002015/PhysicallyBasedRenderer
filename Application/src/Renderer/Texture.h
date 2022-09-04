@@ -16,7 +16,7 @@ public:
 		TextureCreationException(const std::string errorMessage)
 			: errorMessage("TextureCreationException Occured - Texture Not Created: " + errorMessage) {}
 
-		const char* what() const override
+		const char* what() const noexcept override
 		{
 			return errorMessage.c_str();
 		}

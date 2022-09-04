@@ -5,8 +5,14 @@
 
 #ifdef PBR_DEBUG
 
+	#if PBR_WINDOWS
+		#define DEBUG_BREAK __debugbreak();
+	#else
+		#define DEBUG_BREAK
+	#endif
+
 	#define ASSERT(cond) if ((!cond)) { { __debugbreak(); } }
-	#define ASSERT_MESSAGE(cond, ...) { if (!(cond)) { Log::critical(std::string("Assertion failed: ") + __VA_ARGS__); __debugbreak(); } }
+	#define ASSERT_MESSAGE(cond, ...) { if (!(cond)) { Log::critical(std::string("Assertion failed: ") + __VA_ARGS__); DEBUG_BREAK } }
 
 #else
 
