@@ -37,6 +37,18 @@ project "Application"
         "assimp"
     }
 
+    filter "system:windows"
+        defines
+        {
+            "PBR_WINDOWS"
+        }
+
+    filter "system:linux"
+        defines
+        {
+            "PBR_LINUX"
+        }
+
     filter "configurations:Debug"
         runtime "Debug"
         symbols "on"
@@ -48,10 +60,22 @@ project "Application"
             "SPDLOG_ACTIVE_LEVEL=SPDLOG_LEVEL_TRACE",
             "SPDLOG_ACTIVE_LEVEL_SOURCE=spdlog::level::trace"
         }
-
+    
+    filter {"configurations:Debug", "system:windows"}
         links
         {
-            "Vendor/assimp/zlib/bin/Debug/zlibstaticd.lib"
+            "Vendor/assimp/zlib/bin/Windows/Debug/zlibstaticd.lib"
+        }
+    
+    filter {"configurations:Debug", "system:linux"}
+        links
+        {
+            "zlibstaticd:shared"
+        }
+
+        libdirs
+        {
+            "Vendor/assimp/zlib/bin/Linux/Debug/"
         }
 
     filter "configurations:Release"
@@ -65,8 +89,20 @@ project "Application"
             "SPDLOG_ACTIVE_LEVEL=SPDLOG_LEVEL_INFO",
             "SPDLOG_ACTIVE_LEVEL_SOURCE=spdlog::level::info"
         }
-
+    
+    filter {"configurations:Release", "system:windows"}
         links
         {
-            "Vendor/assimp/zlib/bin/Release/zlibstatic.lib"
+            "Vendor/assimp/zlib/bin/Windows/Release/zlibstatic.lib"
+        }
+
+    filter {"configurations:Release", "system:linux"}
+        links
+        {
+            "zlibstatic:shared"
+        }
+
+        libdirs
+        {
+            "Vendor/assimp/zlib/bin/Linux/Release/"
         }

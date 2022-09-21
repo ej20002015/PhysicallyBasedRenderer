@@ -2,7 +2,7 @@
 
 An application for rendering scenes using either Blinn-Phong shading, or physically based shading.
 
-Note that currently **only windows is supported**.
+Note that Windows and Linux are supported.
 
 **Access the report that goes alongside this code [here](https://github.com/ej20002015/Final-Report-Write-Up/blob/master/finalReport.pdf)**
 
@@ -12,20 +12,42 @@ This repo was originally hosted on Azure Devops and later migrated to Github, he
 
 ## Prerequisites
 
-Visual Studio 2019 must be installed.
+### Windows
+
+- Visual Studio 2019 must be installed
+
+### Linux
+
+- Make must be installed
 
 ## Build Instructions
+
+### Windows
 
 1. Clone the repository and navigate to the project root directory
 2. Run ```call Scripts/GenerateVisualStudioFiles.bat``` to generate the Visual Studio configuration files using Premake
 3. Open the ```PBR.sln``` solution file in Visual Studio, and build all the projects
 
+### Linux
+
+1. Clone the repository and navigate to the project root directory
+2. Run ```./Scripts/GenerateLinuxMakeFiles.sh``` to generate the make configuration files using Premake
+3. Run ```make``` and then ```make config=release``` to build all the projects in both debug and release configurations
+
 ## Run Instructions
+
+### Windows
 
 - The program can be run:
   - Inside Visual Studio
-  - Or by running the executable directly, which is located in the ```Application/bin/Release/Application/``` directory. When doing this, make sure that the working directory is correctly set to ```Application/```
-- Not that the ```Release``` build runs significantly faster than the ```Debug``` build
+  - Or by running the executable directly, which is located in the ```Application/bin/Release/Application/``` or ```Application/bin/Debug/Application/``` directories. When doing this, make sure that the working directory is correctly set to ```Application/```
+
+### Linux
+
+- Navigate to the ```Application/``` directory
+- Run ```./bin/Debug/Application/Application``` or ```./bin/Release/Application/Application```
+
+Note that the ```Release``` build runs significantly faster than the ```Debug``` build
 
 ## User Controls
 

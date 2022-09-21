@@ -14,6 +14,14 @@ public:
 		std::string title = "Hello World";
 		uint32_t width = DEFAULT_WIDTH, height = DEFAULT_HEIGHT;
 		bool vSyncEnabled = false;
+
+		// Redefinition of default values through the default constructor
+		// is necessary to get around a gcc bug.
+		// See https://bugs.llvm.org/show_bug.cgi?id=36684
+		WindowSpecification()
+			: title("Hello World"),
+			  width(DEFAULT_WIDTH), height(DEFAULT_HEIGHT),
+			  vSyncEnabled(false) {}
 		
 		// Callback event methods
 

@@ -18,7 +18,7 @@ public:
 		ShaderCreationException(const std::string errorMessage)
 			: errorMessage("ShaderCreationException Occured - Shader Not Created: " + errorMessage) {}
 
-		const char* what() const override
+		const char* what() const noexcept override
 		{
 			return errorMessage.c_str();
 		}
