@@ -32,7 +32,8 @@ This repo was originally hosted on Azure Devops and later migrated to Github, he
 
 1. Clone the repository and navigate to the project root directory
 2. Run ```./Scripts/GenerateLinuxMakeFiles.sh``` to generate the make configuration files using Premake
-3. Run ```make``` and then ```make config=release``` to build all the projects in both debug and release configurations
+3. Run ```apt-get install libxcursor-dev libxrandr-dev libxinerama-dev libxi-dev``` to install all the x11 libraries required to build glfw
+4. Run ```make``` and then ```make config=release``` to build all the projects in both debug and release configurations
 
 ## Run Instructions
 
